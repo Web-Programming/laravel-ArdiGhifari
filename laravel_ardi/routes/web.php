@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,9 @@ Route::get('/profile', function () {
 });
 
 //Route dengan parameter (Wajib)
-Route::get('/mahasiswa/{nama}', function ($nama = "Ardi") {
-    echo "<h1>Halo Nama Saya $nama</h2>";
-});
+// Route::get('/mahasiswa/{nama}', function ($nama = "Ardi") {
+//     echo "<h1>Halo Nama Saya $nama</h2>";
+// });
 
 //Route dengan parameter (Tidak Wajib)
 Route::get('/mahasiswa2/{nama?}', function ($nama = "Ghifari") {
@@ -75,10 +76,10 @@ Route::get('/dosen/index', function () {
 
 //Route Fakultas
 Route::get('/fakultas', function () {
-    // return view('fakultas.index', ["ilkom" => ["Fakultas Ilmu Komputer 
+    // return view('fakultas.index', ["ilkom" => ["Fakultas Ilmu Komputer
     // dan Rekayasa"]);
 
-    // return view('fakultas.index', ["fakultas" => ["Fakultas Ilmu Komputer 
+    // return view('fakultas.index', ["fakultas" => ["Fakultas Ilmu Komputer
     // dan Rekayasa", "Fakultas Ilmu Ekonomi"]
     // ]);
 
@@ -90,5 +91,21 @@ Route::get('/fakultas', function () {
 
     $kampus = "Universitas Multi Data Palembang";
     $fakultas = ["Fakultas Ilmu Komputer dan Rekayasa", "Fakultas Ilmu Ekonomi"];
-    return view ('fakultas.index',compact('fakultas','kampus'));
+    return view('fakultas.index', compact('fakultas', 'kampus'));
 });
+
+Route::get('/mahasiswa/insert', [MahasiswaController::class, 'insert']);
+Route::get('/mahasiswa/update', [MahasiswaController::class, 'update']);
+Route::get('/mahasiswa/delete', [MahasiswaController::class, 'delete']);
+Route::get('/mahasiswa/select', [MahasiswaController::class, 'select']);
+
+
+Route::get('/mahasiswa/insert-qb', [MahasiswaController::class, 'insertQb']);
+Route::get('/mahasiswa/update-qb', [MahasiswaController::class, 'updateQb']);
+Route::get('/mahasiswa/delete-qb', [MahasiswaController::class, 'deleteQb']);
+Route::get('/mahasiswa/select-qb', [MahasiswaController::class, 'selectQb']);
+
+Route::get('/mahasiswa/insert-elq', [MahasiswaController::class, 'insertElq']);
+Route::get('/mahasiswa/update-elq', [MahasiswaController::class, 'updateElq']);
+Route::get('/mahasiswa/delete-elq', [MahasiswaController::class, 'deleteElq']);
+Route::get('/mahasiswa/select-elq', [MahasiswaController::class, 'selectElq']);
