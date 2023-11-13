@@ -37,4 +37,25 @@ class ProdiController extends Controller
         return view('prodi.index')->with('prodis', $prodis);
     }
 
-}
+    public function show(Prodi $prodi)
+    {
+        return view('prodi.show',['prodi' => $prodi]);
+    }
+
+    public function edit(Prodi $prodi)
+    {
+        return view('prodi.edit',['prodi'=> $prodi]);
+    }
+
+    public function update(Request $request, Prodi $prodi)
+    {
+        $validateData = $request->validate([
+            'nama'=> 'required|min:5|max:20',
+            ]);
+            
+            Prodi::where('id', $prodi->id)->update($validateData);
+            $request->session()->flash('info',"Data prodi $prodi->nama berhasil diubah");
+            return redirect()->route('prodi.index');
+        }
+    }
+

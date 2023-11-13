@@ -6,7 +6,7 @@
     <div class="col">
         <h2>Prodi</h2>
         <div class="d-md-flex justify-content-md-end">
-        <a href="{{ route('prodi.create') }}" class="btn btn-primary">Tambah</a>
+        <a href="{{ url('prodi.create') }}" class="btn btn-primary">Tambah</a>
         </div>
         <table class="table table-striped table-hover>">
             <thead>
