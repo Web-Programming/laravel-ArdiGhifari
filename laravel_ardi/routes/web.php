@@ -112,3 +112,5 @@ Route::get('/mahasiswa/select-elq', [MahasiswaController::class, 'selectElq']);
 
 Route::post('/prodi/store', [ProdiController::class,'store']);
 Route::get('/prodi/create', [ProdiController::class,'create']);
+
+Route::get('/prodi', [ProdiController::class,'index'])->name('prodi.index');
