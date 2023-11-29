@@ -20,7 +20,7 @@
                         <tr>
                             <td> {{ $item->nama }} </td>
                             <td>
-                                <form action="{{ route('prodi.destroy', ['prodi => $item->id']) }}" method="POST">
+                                <form action="{{ route('prodi.destroy', ['prodi' => $item->id]) }}" method="POST">
                                     <a href="{{ url('prodi/' . $item->id) }}" class="btn btn-warning">Detail</a>
                                     <a href="{{ url('prodi/' . $item->id . '/edit') }}" class="btn btn-info">Ubah</a>
                                     @method('DELETE')
