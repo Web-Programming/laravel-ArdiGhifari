@@ -119,4 +119,4 @@ Route::get('/prodi/{prodi}', [ProdiController::class,'show'])->name('prodi.show'
 Route::get('/prodi/{prodi}/edit', [ProdiController::class,'edit'])->name('prodi.edit');
 Route::get('/prodi/{prodi}/update', [ProdiController::class,'edit'])->name('prodi.update');
 
-Route::get('/prodi/{prodi}', [ProdiController::class, 'update'])->name('prodi.update');
+Route::patch('/prodi/{prodi}', [ProdiController::class, 'update'])->name('prodi.update');
