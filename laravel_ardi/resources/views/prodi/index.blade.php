@@ -20,10 +20,13 @@
                         <tr>
                             <td> {{ $item->nama }} </td>
                             <td>
-                            <td>
                                 <a href="{{ url('prodi/' . $item->id) }}" class="btn btn-warning">Detail</a>
-                            </td>
-                            <a href="{{ url('prodi/' . $item->id . '/edit') }}" class="btn btn-info">Ubah</a>
+                                <a href="{{ url('prodi/' . $item->id . '/edit') }}" class="btn btn-info">Ubah</a>
+                                <form action="{{ route('prodi.destroy', ['prodi => $item->id']) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
