@@ -16,10 +16,17 @@ class ProdiController extends Controller
     {
         //  dump($request);
         // echo $request->nama;
+        $this->authorize('create', Prodi::class);
 
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
+            'foto' => 'required|file|image|max:5000',
         ]);
+
+        // ambil ekstensi file
+        $ext = $request->foto->getClientOriginalExtension();
+        //rename nama file
+
         // dump($validateData);
         // echo $validateData['nama'];
 
